@@ -179,3 +179,5 @@ STORAGES = {
 }
 
 PORT = 8000
+
+CSRF_TRUSTED_ORIGINS = ['https://archivetools.onrender.com/']
