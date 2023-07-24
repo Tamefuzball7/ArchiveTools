@@ -8,8 +8,10 @@ import tempfile
 import zipfile
 import exiftool
 from django.http import HttpResponse
-# Create your views here.
+from django.views.decorators.csrf import csrf_exempt
 
+# Create your views here.
+@csrf_exempt
 def compareHash(request):
     if request.method == 'POST':
         archivo_original = request.FILES.get('archivo_original')
@@ -34,7 +36,7 @@ def calcular_hash(archivo):
     for chunk in archivo.chunks():
         sha256_hash.update(chunk)
     return sha256_hash.hexdigest()
-
+@csrf_exempt
 def extractMetadata(request):
     if request.method == 'POST' and request.FILES.get('archivo'):
         archivo = request.FILES['archivo']
@@ -65,7 +67,7 @@ def extractMetadata(request):
 
     return render(request, 'ArchiveTools/extractMetadata.html')
 
-
+@csrf_exempt
 def viewFormat(request):
     if request.method == 'POST':
         archivo = request.FILES['archivo']
@@ -83,7 +85,7 @@ def viewFormat(request):
         return render(request, 'ArchiveTools/resultViewFormat.html', {'tipo_archivo': tipo_archivo, 'fecha_creacion': fecha_creacion, 'fecha_modificacion': fecha_modificacion, 'formato_original': formato_original, 'advertencia': advertencia})
     
     return render(request, 'ArchiveTools/viewFormat.html')
-
+@csrf_exempt
 def generetaHash(request):
     if request.method == 'POST' and request.FILES['archivo']:
         archivo = request.FILES['archivo']
