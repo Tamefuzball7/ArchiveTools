@@ -36,6 +36,7 @@ def calcular_hash(archivo):
     for chunk in archivo.chunks():
         sha256_hash.update(chunk)
     return sha256_hash.hexdigest()
+
 @csrf_exempt
 def extractMetadata(request):
     if request.method == 'POST' and request.FILES.get('archivo'):

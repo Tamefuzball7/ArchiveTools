@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-$$5=mm)^w@pmd()034(k7q_p2ipa6kwr$p_uff=^3(w1)h@x0v
 DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ['https://archivetools.onrender.com/',"*"]
+CSRF_TRUSTED_ORIGINS = ['https://archivetools.onrender.com/']
 # Application definition
 
 BASE_APPS = [
