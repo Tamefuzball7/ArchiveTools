@@ -1,0 +1,75 @@
+{% extends 'ArchiveTools/layout.html' %}
+{% block title %}
+Comparar hash
+{% endblock %}
+{% block body %}
+  {% include 'ArchiveTools/navbar.html' %}
+
+  <section class="w-full bg-white">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-16 max-w-7xl lg:py-24">
+        <div class="flex w-full mx-auto text-left">
+          <div class="relative inline-flex items-center mx-auto align-middle">
+            <div class="text-center">
+              <h1 class="max-w-5xl text-2xl font-bold leading-none tracking-tighter text-neutral-600 md:text-5xl lg:text-6xl lg:max-w-7xl">
+                Compara el Hash de <br class="hidden lg:block" />
+                Varios formatos de archivos
+              </h1>
+              <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-gray-500">Aquí podrás encontrar herramientas para extracción de metadatos, ver el formato original de un archivo e incluso generar hash para los archivos.</p>
+              {% if hashes %}
+              <h3 class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-gray-500">Resultados:</h3>
+              <p class="max-w-xl mx-auto  text-base leading-relaxed text-gray-500">Hash del archivo original: {{ hashes.original }}</p>
+              <p class="max-w-xl mx-auto  text-base leading-relaxed text-gray-500">Hash del archivo copia: {{ hashes.copia }}</p>
+              {% if hashes.mismos %}
+              <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-gray-500">Los archivos tienen el mismo hash.</p>
+              {% else %}
+              <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-gray-500">Los archivos tienen diferentes hashes.</p>
+              {% endif %}
+              {% endif %}
+              <div class="flex justify-center w-full max-w-2xl gap-2 mx-auto mt-6">
+  
+                <div class="flex items-center justify-center w-full">
+                  <label for="archivo_original" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                      <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                      </svg>
+                      <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                        <span class="font-semibold">Archivo Original</span><br>
+                        <span class="font-semibold">Haz clic para cargar</span> o puedes arrastrar y soltar el archivo original
+                      </p>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">Formatos válidos: SVG, PNG, JPG o GIF (MAX. 800x400px)</p>
+                    </div>
+                    <input id="archivo_original" name="archivo_original" type="file" class="hidden" />
+                  </label>
+                </div>
+                <label for="archivo_copia" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                  <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                    <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                    </svg>
+                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                      <span class="font-semibold">Archivo Copia</span><br>
+                      <span class="font-semibold">Haz clic para cargar</span> o puedes arrastrar y soltar el archivo copia
+                    </p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Formatos válidos: SVG, PNG, JPG o GIF (MAX. 800x400px)</p>
+                  </div>
+                  <input id="archivo_copia" name="archivo_copia" type="file" class="hidden" />
+                </label>
+              </div>
+              <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                <button class="px-5 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-orange-600 lg:px-10 rounded-xl hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">Comparar Archivos</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  
+
+  
+
+  {% include 'ArchiveTools/foother.html' %}
+{% endblock %}

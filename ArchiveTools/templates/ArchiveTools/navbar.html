@@ -1,0 +1,47 @@
+{% load static %}
+<header class="bg-white mt-4">
+  <div class="mx-auto max-w-screen-xl px-5 sm:px-6 lg:px-8 flex justify-between items-center">
+    <div class="flex items-center">
+      <a class="block text-orange-600" href="/">
+        <span class="sr-only">Inicio</span>
+        <img class="h-8 ml-0" src="{% static 'img/logo.png' %}" alt="Logo" />
+      </a>
+    </div>
+
+    <div class="flex justify-center">
+      <nav aria-label="Global">
+        <ul class="flex items-center justify-center gap-6 text-sm">
+          <li>
+            <a class="text-gray-500 transition hover:text-orange-600/75" href="{% url 'extractMetadata' %}">
+              Extraer metadatos
+            </a>
+          </li>
+          <li>
+            <a class="text-gray-500 transition hover:text-orange-600/75" href="{% url 'viewFormat' %}">
+              Ver formato del archivo
+            </a>
+          </li>
+          <li>
+            <a class="text-gray-500 transition hover:text-orange-600/75" href="{% url 'generetaHash' %}">
+              Generar hash
+            </a>
+          </li>
+          <li>
+            <a class="text-gray-500 transition hover:text-orange-600/75" href="{% url 'compareHash' %}">
+              Comparar hash
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="md:flex md:items-center md:gap-12">
+      <div class="ml-auto">
+        <div class="inline-flex items-center gap-2 list-none">
+          <button class="items-center block px-6 py-2 text-sm font-medium text-center text-orange-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">Registro</button>
+          <a href="{% url 'login' %}" class="items-center block px-6 py-2.5 text-sm font-medium text-center text-white transition duration-500 ease-in-out transform bg-orange-600 rounded-xl hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">Iniciar sesión</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
