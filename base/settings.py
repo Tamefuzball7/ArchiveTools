@@ -165,11 +165,11 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 
 TIKA_SERVER_ENDPOINT = 'http://localhost:9998/tika'
 
-TEMP_DIR = os.path.join(BASE_DIR, 'temp')
+TEMP_DIR = Path.joinpath(BASE_DIR, 'temp')
 
 STORAGES = {
     # ...
