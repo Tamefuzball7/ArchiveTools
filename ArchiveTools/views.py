@@ -1,4 +1,5 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse ,redirect
+
 from django.conf import settings
 import magic
 import os
@@ -9,7 +10,7 @@ import zipfile
 import exiftool
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 @csrf_exempt
 def compareHash(request):
@@ -137,6 +138,17 @@ def generetaHash(request):
     return render(request, 'ArchiveTools/generetaHash.html')
 
 
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Redireccionar al usuario a la página de inicio después del registro
+            return redirect('extractMetadata')
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'Archivetools/register.html', {'form': form})
 
 
 

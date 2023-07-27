@@ -13,10 +13,10 @@ Comparar hash
           <div class="relative inline-flex items-center mx-auto align-middle">
             <div class="text-center">
               <h1 class="max-w-5xl text-2xl font-bold leading-none tracking-tighter text-neutral-600 md:text-5xl lg:text-6xl lg:max-w-7xl">
-                Compara el Hash de <br class="hidden lg:block" />
-                Varios formatos de archivos
+                Verifica la legitimidad de archivos  <br class="hidden lg:block" />
+                duplicados al comparar sus hashes
               </h1>
-              <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-gray-500">Aquí podrás encontrar herramientas para extracción de metadatos, ver el formato original de un archivo e incluso generar hash para los archivos.</p>
+              <p class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-gray-500">Verifica la autenticidad de archivos comparando sus hashes. Nuestra herramienta te permite ingresar dos archivos y obtener sus hashes para asegurar que sean idénticos. Asegura la preservación digital con esta función de comparación de hashes.</p>
               {% if hashes %}
               <h3 class="max-w-xl mx-auto mt-8 text-base leading-relaxed text-gray-500">Resultados:</h3>
               <p class="max-w-xl mx-auto  text-base leading-relaxed text-gray-500">Hash del archivo original: {{ hashes.original }}</p>
@@ -55,7 +55,7 @@ Comparar hash
                     </p>
                     <p class="text-xs text-gray-500 dark:text-gray-400">Formatos válidos: SVG, PNG, JPG o GIF (MAX. 800x400px)</p>
                   </div>
-                  <input id="archivo_copia" name="archivo_copia" type="file" class="hidden" />
+                  <input id="archivo_copia" name="archivo_copia" type="file" required class="hidden" />
                 </label>
               </div>
               <div class="flex flex-col items-center justify-center pt-5 pb-6">

@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-$$5=mm)^w@pmd()034(k7q_p2ipa6kwr$p_uff=^3(w1)h@x0v
 DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ['https://archivetools.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://gruasytransportesolucioneslogisticas.com.co']
 # Application definition
 
 BASE_APPS = [
@@ -129,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-co'
 
 TIME_ZONE = 'UTC'
 
@@ -182,3 +182,4 @@ STORAGES = {
 
 PORT = 8000
 
+LOGIN_REDIRECT_URL = 'extractMetadata'

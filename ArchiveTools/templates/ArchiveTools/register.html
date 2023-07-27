@@ -1,28 +1,32 @@
 {% extends 'ArchiveTools/layout.html' %}
-{% block title %}Iniciar sesion{% endblock %}
+{% block title %}Extraer Metadata{% endblock %}
 {% block body %}
-
 <section class="w-full bg-white">
-    <div class=" items-center px-5 py-2 lg:px-20">
 
+    <div class=" items-center px-5 py-2 lg:px-20">
         <a href="javascript:history.back()" class="absolute top-0 left-0 mt-8 ml-8 text-neutral-600 hover:text-neutral-800 transition duration-300 ease-in-out">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
         </a>
-
         <div class="flex flex-col w-full max-w-md p-10 mx-auto my-6 transition duration-500 ease-in-out transform bg-white rounded-lg md:mt-0">
             <div class="mt-8">
-                <div class="mt-6    ">
+                <div class="mt-6">
                     <div>
-                        <h2 class="mt-6 text-3xl font-extrabold text-neutral-600">Iniciar sesion</h2>
+                        <h2 class="mt-6 text-3xl font-extrabold text-neutral-600">Registro</h2>
                     </div>
-                    <form action="#" method="POST" class="space-y-6 mt-4">
+                    <form  method="POST" class="space-y-6 ">
                         {% csrf_token %}
                         <div>
-                            <label for="email" class="block text-sm font-medium text-neutral-600"> Usuario </label>
+                            <label for="username" class="block text-sm font-medium text-neutral-600 mt-4"> Usuario </label>
                             <div class="mt-1">
-                                <input id="username " name="username" type="text" autocomplete="username" required="" placeholder="Usuario" class="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
+                                <input id="username" name="username" type="text" autocomplete="username" required="" placeholder="Usuario" class="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-neutral-600 mt-4"> Correo Electronico </label>
+                            <div class="mt-1">
+                                <input id="email" name="email" type="email" autocomplete="email" required="" placeholder="Correo Electronico" class="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
                             </div>
                         </div>
 
@@ -32,20 +36,17 @@
                                 <input id="password" name="password" type="password" autocomplete="current-password" required="" placeholder="Contraseña" class="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
                             </div>
                         </div>
-
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <input id="remember-me" name="remember-me" type="checkbox" placeholder="Your password" class="w-4 h-4 text-orange-600 border-gray-200 rounded focus:ring-orange-500">
-                                <label for="remember-me" class="block ml-2 text-sm text-neutral-600"> Recuerdame </label>
-                            </div>
-
-                            <div class="text-sm">
-                                <a href="#" class="font-medium text-orange-600 hover:text-orange-500"> Recuperar contraseña </a>
+                        <div class="space-y-1">
+                            <label for="password" class="block text-sm font-medium text-neutral-600"> Confirmar Contraseña </label>
+                            <div class="mt-1">
+                                <input id="password" name="password2" type="password" autocomplete="current-password" required="" placeholder="Confirmar Contraseña " class="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300">
                             </div>
                         </div>
 
+
+
                         <div>
-                            <button type="submit" class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-orange-600 rounded-xl hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">Iniciar sesion</button>
+                            <button type="submit" class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-orange-600 rounded-xl hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">Registrarse</button>
                         </div>
                     </form>
                     <div class="relative my-4">
@@ -53,7 +54,7 @@
                             <div class="w-full border-t border-gray-300"></div>
                         </div>
                         <div class="relative flex justify-center text-sm">
-                            <span class="px-2 text-neutral-600 bg-white"> Iniciar sesion con </span>
+                            <span class="px-2 text-neutral-600 bg-white"> O registrarme con</span>
                         </div>
                     </div>
                     <div>
@@ -80,5 +81,6 @@
         </div>
     </div>
 </section>
+
 
 {% endblock %}
