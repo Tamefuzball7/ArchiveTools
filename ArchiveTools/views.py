@@ -138,17 +138,7 @@ def generetaHash(request):
     return render(request, 'ArchiveTools/generetaHash.html')
 
 
-def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            # Redireccionar al usuario a la página de inicio después del registro
-            return redirect('extractMetadata')
-    else:
-        form = UserCreationForm()
 
-    return render(request, 'Archivetools/register.html', {'form': form})
 
 
 
