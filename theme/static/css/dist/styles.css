@@ -826,10 +826,6 @@ select {
   margin-left: 0.5rem;
 }
 
-.ml-20 {
-  margin-left: 5rem;
-}
-
 .ml-4 {
   margin-left: 1rem;
 }
@@ -840,10 +836,6 @@ select {
 
 .ml-auto {
   margin-left: auto;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
 }
 
 .mt-1 {
