@@ -139,7 +139,34 @@ def generetaHash(request):
 
 
 
+@csrf_exempt
+def addMetadata(request):
+    if request.method == 'POST' and request.FILES.get('archivo'):
+        archivo = request.FILES['archivo']
+        archivo_path = os.path.join('temp', archivo.name)
 
+        # Guarda el archivo temporalmente
+        with open(archivo_path, 'wb') as temp_file:
+            for chunk in archivo.chunks():
+                temp_file.write(chunk)
+
+        try:
+            # Extrae los metadatos utilizando pyexiftool
+            with exiftool.ExifTool() as et:
+                metadatos = et.execute_json("-G", archivo_path)
+
+            # Borra el archivo temporal
+            os.remove(archivo_path)
+
+            # Devuelve los metadatos como respuesta JSON
+            return JsonResponse(metadatos, json_dumps_params={'indent': 2})
+
+        except Exception as e:
+            # Si ocurre un error, borra el archivo temporal y muestra un mensaje de error
+            os.remove(archivo_path)
+            return HttpResponse(f"Error al extraer metadatos: {str(e)}")
+
+    return render(request, 'ArchiveTools/addMetadata.html')
 
 
 

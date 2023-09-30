@@ -10,6 +10,7 @@ urlpatterns = [
     path("compareHash", views.compareHash, name="compareHash"), 
     path("generetaHash", views.generetaHash, name="generetaHash"), 
     path("viewFormat", views.viewFormat, name="viewFormat"), 
+    path("addMetadata", views.addMetadata, name="addMetadata"), 
     path("", extractMetadata, name="extractMetadata"), 
 
 ]
